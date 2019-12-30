@@ -37,17 +37,15 @@
                 <!-- New Section -->
 
                 <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 31.Why is there an error in the code and how would you fix it?</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 46. create a script that generates 26 txt files.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                          def foo(a=1, b=2):
-                              return a + b
-                          
-                          x = foo - 1
+                          each containing one letter of English alphabet as a name as text inside 
+
                           </textarea>
                      </div>
                  </form>
@@ -58,7 +56,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 31.
+                        Answer 46.
                       </button>
                     </h2>
                   </div>
@@ -66,10 +64,15 @@
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                          def foo(a=1, b=2):
-                              return a + b
-                         
-                          x = foo() - 1
+                          import string, os
+
+                          if not os.path.exists("letters"):
+                              os.makedirs("letters")
+                          for letter in string.ascii_lowercase: 
+                              with open("letters/" + letter + ".txt", "w") as file:
+                                  file.write(letter + "\n")
+
+
                           </textarea>
                      </div>
                   </div>
@@ -90,18 +93,15 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 32. What will the following script output? Please try to do this mentally if you can.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 46. Write a script that extracts letters from the 26 text file and put the letters in a list.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              c = 1
-                              def foo():
-                                  return c
-                              c = 3
-                              print(foo())
+                             hints:
+                             ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
   
                           </textarea>
                      </div>
@@ -113,7 +113,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 32.
+                        Answer 46.
                       </button>
                     </h2>
                   </div>
@@ -121,17 +121,15 @@
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              3 
+                             import glob
 
+                             letters = []
+                             file_list = glob.glob("letters/*.txt")
 
-                              Explanation:                              
-                              This is what happens here:                              
-                              Line 1: c  is assigned 1.                              
-                              Line 2-3: We create a function which if executed will return the value of c .                              
-                              Line 4: c  is updated and is now equal to 3.                              
-                              Line 5: We tell the blueprint to print out the value of c  which is at the point where we call the function 3.
-                              
-                              
+                             for filename in file_list:
+                                 with open(filename, "r") as file:
+                                    letters.append(file.read().strip("\n"))
+                             print(letters)
   
                           </textarea>
                      </div>
@@ -154,43 +152,44 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 33.  Here's another similar exercise. What will the following script output? Try to do this mentally if you can.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 47.  Create a script that iterates through text files and checks if strings p, y, t, h, o, or n are found in the content of the text file. If any of those strings is found, append that string to a list.</span>
                 </div>
         
-                <form style="margin-top: -15px;">
-                     <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                           
-                              c = 1
-                              def foo():
-                                  c = 2
-                                  return c
-                              c = 3
-                              print(foo())
-  
-                              
-  
-                          </textarea>
-                     </div>
-                 </form>
-              
         
                <div class="accordion" id="accordionExample" style="margin-top: -16px;">
                 <div class="card">
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 33.
+                        Answer 47.
                       </button>
                     </h2>
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                      
-                        2
-  
-  
-                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
+                       
+                        import glob
+
+                        letters = []
+                        file_list = glob.iglob("letters/*.txt")
+                        check = "python"
+                        
+                        for filename in file_list:
+                            with open(filename,"r") as file:
+                                letter = file.read().strip("\n")
+                                if letter in check:
+                                    letters.append(letter)
+                        
+                        print(letters)
+                        Explanation:
+                        
+                        The glob module here helps to generate a list of text files. 
+                        Then we iterate through that list and read each file inside the loop, strip "\n" characters and then check 
+                        if the letter extracted from the file is in string "python" and we append that letter if it is.
+
+                      </textarea>
+                 </div>
                   </div>
                 </div>
               </div>
@@ -209,21 +208,20 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 34. The following script throws a NameError  in the last line saying that c  is not defined. Please fix the function so that there is no error and the last line is able to print out the value of c  (i.e. 1 ).</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 48. The script is supposed to print out letter "e" if the letter is in string "Hello", but it doesn't. Please try to fix the script.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              def foo(): 
-                                  c = 1 
-                                  return c 
-                              foo() 
-                              print(c)
-                              Expected output:
+                            for letter in "Hello":
+                            if letter == "e":
+                            print(letter)
 
-                              1 
+
+                        Expected output:                       
+                        e 
   
                               
                           </textarea>
@@ -236,23 +234,20 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 34.
+                        Answer 48.
                       </button>
                     </h2>
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                              def foo():
-                              global c
-                              c = 1 
-                              return c 
-                          foo() 
-                          print(c)
 
+                            for letter in "Hello":
+                            if letter == "l":
+                                print(letter)
 
-                          Explanation:
-                          Adding global c  fixes the code. That line makes available name c  in the global namespace. Therefore,  print is able to access variable c .
+                        Explanation:
+                        Solution was to indent the print statement because you always indent the line under an if  statement. 
                               
                           </textarea>
                      </div>
@@ -274,17 +269,19 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 35. Create a function that takes any string as input and returns the number of words for that string.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 49. The code is supposed to get some input from the user, but instead it produces an error. Please try to understand the error and then fix it.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                            d = {"a": 1, "b": 2, "c": 3}
-  
-                            Expected output: 
-                             6 
+                              pass = input("Please enter your password: ") 
+
+                              Note: Please use raw_input  instead of input if you are on Python 2. For Python 3 input  is fine.
+                              Hint: You cannot use reserved keywords for variable names
+                              
+                              
                               
                           </textarea>
                      </div>
@@ -296,7 +293,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 35.
+                        Answer 49.
                       </button>
                     </h2>
                   </div>
@@ -304,15 +301,12 @@
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              def count_words(strng): 
-                                  strng_list = strng.split() 
-                                  return len(strng_list) 
-                           
-                              print(count_words("Hey there it's me!"))
+                              pass1 = input("Please enter your password: ") 
 
-                          Explanation:
-                          We're using split  here which is a string method that splits a string into several strings given a separator passed inside the brackets. When you don't pass a separator, split  will split a string at white spaces. This will output a list of strings..Applying len  to that list returns the number of list items, so the number of words.
+                              Explanation:
                               
+                              There was a SyntaxError  error because the syntax to name the variable was wrong since pass  is a reserved keyword in Python. 
+                              However you can solve that by adding a number to the name or simply choosing another name for the variable.
                           </textarea>
                      </div>
                   </div>
@@ -334,16 +328,19 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 36. Please download the words1.txt file from the attachment and then create a Python function that takes a text file as input and returns the number of words contained in the text file.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 50. The code produces an error. Please understand the error and try to fix it</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                           
-                              Expected output:
-                              10
-  
+                              age = input("What's your age? ")
+                              age_last_year = age - 1
+                              print("Last year you were %s." % age_last_year)
+                              Note: Please use raw_input instead of input if you are on Python 2. For Python 3 input is fine.
+
+                              Hint 1: The input  function always returns a string type.
+                              Hint 2: Convert the input to an integer with int .
                           </textarea>
                      </div>
                  </form>
@@ -354,7 +351,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 36.
+                        Answer 50.
                       </button>
                     </h2>
                   </div>
@@ -362,22 +359,25 @@
                     <div class="form-group">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                          
-                            def count_words(filepath):
-                                with open(filepath, 'r') as file:
-                                    strng = file.read()
-                                    strng_list = strng.split(" ")
-                                    return len(strng_list)
-                            print(count_words("words1.txt"))
+                            Answer 1: 
 
-
-                        Note: For the above script to work, you should have a file named words1.txt in the same directory with the Python script.
-                        
-                        Explanation: 
-                        The function here takes as input a file path. If the file path is in the same directory with your Python script, you can simply pass in the file name as in the above script. If your text file is somewhere else, then you need to pass the full path when calling the function. Example:
-                        
-                        print(count_words("C:/Home/words1.txt"))
-                        The rest of the script consists of opening the file in read  mode, loading the text into a string using read  and then splitting and counting the number of words.
-
+                            age = int(input("What's your age? "))
+                            age_last_year = age - 1
+                            print("Last year you were %s." % age_last_year)
+                            Explanation 1:
+                            
+                            As you can see we applied an int  function to the input  function. That converts user input to an integer right away.
+                            
+                            Answer 2: 
+                            
+                            age = input("What's your age? ")
+                            age_last_year = int(age) - 1
+                            print("Last year you were %s." % age_last_year)
+                            Explanation 2:
+                            
+                            In this alternative solution we applied the int  function in the line where the math operation is taking place. This could be useful 
+                            if you're intending to use the user input value as a string in other parts of your script, 
+                            so you don't want to convert it to an integer directly.
                         </textarea>
                    </div>
                   </div>
@@ -399,16 +399,16 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 37. Create a function that takes a text file as input and returns the number of words contained in the text file.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 51. The code produces an error. Please understand the error and try to fix it</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                              Please take into consideration that some words can be separated by a comma with no space.
-                               For example "Hi,it's me." would need to be counted as three words. 
-                               For your convenience, you can use the text file in the attachment.
-                              
+                              The code produces an error. Please understand the error and try to fix it
+
+
+                              Hint: An open bracket always needs a closing bracket.
                               
                           </textarea>
                      </div>
@@ -420,45 +420,20 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 37.
+                        Answer 51.
                       </button>
                     </h2>
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                              def count_words(filepath):
-                                  with open(filepath, 'r') as file:
-                                      string = file.read()
-                                      string = string.replace(",", " ")
-                                      string_list = string.split(" ")
-                                      return len(string_list)
-
-                              print(count_words("words2.txt"))
-
-                              Explanation 1:
-                              This solution is like the solution of the previous exercise with the difference that before splitting 
-                              we are replacing all commas with a space which will let the split method count the number of words.
+                              print(type("Hey".replace("ey","i")[-1]))
 
 
-                              Answer 2: 
-
-                              import re
-
-                              def count_words_re(filepath):
-                                  with open(filepath, 'r') as file:
-                                      string = file.read()
-                                      string_list = re.split(",| ", string)
-                                      return len(string_list)
-
-                              print(count_words_re("words2.txt"))
-
-                              Explanation 2:
-                              This alternative solution uses the built-in re  module which provides regular expression matching operations. 
-                              We're using the split method of that module and the expression ",| " is meant to replace commas with spaces. 
-                              Using methods from the re  module can be more appropriate than Python built-in methods when string operations are complicated. 
-                              However, for this simple scenario the re  module could be skipped.
-                              
+                              Explanation:
+                              This code produces a SyntaxError: unexpected EOF while parsing which means that Python found an unexpected End Of File while parsing.
+                               The reason of an unexpected end of file is there's a missing closing bracket at the end of the script. 
+                               So, adding a closing bracket at the end of the file fixes the code.
                               
                           </textarea>
                      </div>
@@ -477,18 +452,22 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 38. The following code is supposed to print out the square root of 9, but it throws an error instead because another line before that is missing. Please fix the script so that it prints out the square root of 9.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 52. The code is supposed to ask the user to enter their name and surname and then it prints out those user submitted values. Instead, the code throws a TypeError. Please fix it so that the expected output is printed out.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              math.sqrt(9)  
+                              firstname = input("Enter first name: ")
+                              secondname = input("Enter second name: ")
+                              print("Your first name is %s and your second name is %s" % firstname, secondname)
+
 
                               Expected output:
-                              3 
-                          
+                              Your first name is John and your second name is Smith 
+                              
+                              
                           </textarea>
                      </div>
                  </form>
@@ -499,7 +478,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 38.
+                        Answer 52.
                       </button>
                     </h2>
                   </div>
@@ -507,15 +486,14 @@
                     <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              import math
-                              math.sqrt(9)
+                              firstname = input("Enter first name: ")
+                              secondname = input("Enter second name: ")
+                              print("Your first name is %s and your second name is %s" % (firstname, secondname))
 
 
                               Explanation:
-                                    Since you get the error that math is not defined, that means math is not in the default namespace.
-                                     With some internet research you could easily find out that math is a module, 
-                                     so you simply need to do import math 
-                          
+                              Each of the %s  placeholders expects one value after %  to be replaced with, but you need to pass these values inside a tuple.
+                              So, putting variables firstname  and secondname  inside a tuple fixes the code.
                           </textarea>
                      </div>
                   </div>
@@ -535,20 +513,25 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 39. The script is supposed to output the cosine of angle 1 radian, but instead it is throwing an error. Please fix the code so that it prints out the expected output.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 53. Print out the last name of the second employee.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              import math
-                              print(math.cosine(1))
-                              
-                              Expected output:                              
-                              0.5403023058681397      
-  
-                              
+                              d = {"employees":[{"firstName": "John", "lastName": "Doe"},
+                                                {"firstName": "Anna", "lastName": "Smith"},
+                                                {"firstName": "Peter", "lastName": "Jones"}],
+                              "owners":[{"firstName": "Jack", "lastName": "Petter"},
+                                        {"firstName": "Jessy", "lastName": "Petter"}]}
+
+
+                              Expected output:                            
+                              Smith 
+
+
+
                           </textarea>
                      </div>
                  </form>
@@ -559,7 +542,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 39.
+                        Answer 53.
                       </button>
                     </h2>
                   </div>
@@ -567,8 +550,23 @@
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              import math
-                              print(math.cos(1))
+                              print(d['employees'][1]['lastName'])
+
+
+
+
+                              Explanation:     
+                              d['employees']  returns this list:
+                              
+                              [{"firstName": "John", "lastName": "Doe"},
+                               {"firstName": "Anna", "lastName": "Smith"},
+                               {"firstName": "Peter", "lastName": "Jones"}]
+                              d['employees'][1]  returns the second item of the above list:
+                              
+                              {"firstName": "Anna", "lastName": "Smith"}
+                              And finally d['employees'][1]['lastName']  returns the value of lastName :
+                              
+                              Smith 
                                
                               
                           </textarea>
@@ -590,17 +588,30 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 40. Please try to guess what is missing in the following code and add the missing part so that the code works fine.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 54.  Please update the dictionary by changing the last name of the second employee from Smith to Smooth or to whatever takes your fancy.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              import math
-                              print(math.pow(2))
+                            d = {"employees":[{"firstName": "John", "lastName": "Doe"},
+                                {"firstName": "Anna", "lastName": "Smith"},
+                                {"firstName": "Peter", "lastName": "Jones"}],
+                            "owners":[{"firstName": "Jack", "lastName": "Petter"},
+                                  {"firstName": "Jessy", "lastName": "Petter"}]}
 
-                              Hint: Simply pass two arguments.
+
+                        Expected output: 
+
+                            d = {"employees":[{"firstName": "John", "lastName": "Doe"},
+                                            {"firstName": "Anna", "lastName": "Smooth"},
+                                            {"firstName": "Peter", "lastName": "Jones"}],
+                            "owners":[{"firstName": "Jack", "lastName": "Petter"},
+                                      {"firstName": "Jessy", "lastName": "Petter"}]}
+
+
+
                           </textarea>
                      </div>
                  </form>
@@ -611,7 +622,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 40.
+                        Answer 54.
                       </button>
                     </h2>
                   </div>
@@ -619,73 +630,87 @@
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              import math
-                              print(math.pow(2, 3))
+                            d['employees'][1]['lastName'] = "Smooth"
 
+
+
+                            Explanation:   
+                            On the left side of the assignment operator we are accessing Smith  as we did in the previous exercise. 
+                            Then using the assignment operator we simply assign a new string to that item.
+                          </textarea>
+                     </div>
+                  </div>
+                </div>
+              </div>
+              
+               <hr>
+        
+               <!-- New Section -->
+  
+  
+  
+  
+  
+  
+               
+                  <!-- New Section -->
+  
+                  <div class="alert alert-info" role="alert">
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 55. Please add a new employee to the dictionary.</span>
+                </div>
+        
+                <form style="margin-top: -15px;">
+                     <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
+                           
+                            d = {"employees":[{"firstName": "John", "lastName": "Doe"},
+                                {"firstName": "Anna", "lastName": "Smith"},
+                                {"firstName": "Peter", "lastName": "Jones"}],
+                                "owners":[{"firstName": "Jack", "lastName": "Petter"},
+                                      {"firstName": "Jessy", "lastName": "Petter"}]}
+    
+
+
+                                      Expected output: 
+            
+                                          {'employees': [{'firstName': 'John', 'lastName': 'Doe'},
+                                                        {'firstName': 'Anna', 'lastName': 'Smith'},
+                                                        {'firstName': 'Peter', 'lastName': 'Jones'},
+                                                        {'firstName': 'Albert', 'lastName': 'Bert'}],
+                                          'owners': [{'firstName': 'Jack', 'lastName': 'Petter'},
+                                                      {'firstName': 'Jessy', 'lastName': 'Petter'}]}
+                          </textarea>
+                     </div>
+                 </form>
+              
+        
+               <div class="accordion" id="accordionExample" style="margin-top: -16px;">
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                        Answer 55.
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
+
+                            d["employees"].append(dict(firstName = "Albert", lastName = "Bert"))
+
+
+
+                            Explanation:
                             
-                              Explanation:
-                              You could pass any number there, so 3 is just an example.
-                               As the error suggested, you simply needed to pass a second argument so that pow  can calculate the power of the first argument.                              
-                               If you didn't understand the error, you could do help(math.pow)  to see how the method works.
-                          </textarea>
-                     </div>
-                  </div>
-                </div>
-              </div>
-              
-               <hr>
-        
-               <!-- New Section -->
-  
-  
-  
-  
-  
-  
-               
-                  <!-- New Section -->
-  
-                  <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 41. Create a script that generates a text file with all letters of English alphabet inside it, one letter per line.</span>
-                </div>
-        
-                <form style="margin-top: -15px;">
-                     <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                           
-                              Hint: You need to open a file in write mode, iterate through a list of letters, and use a write  method in each iteration.
+                            d['employees']  returns this list:
+                            
+                            [{"firstName": "John", "lastName": "Doe"},
+                             {"firstName": "Anna", "lastName": "Smith"},
+                             {"firstName": "Peter", "lastName": "Jones"}]
+                            Then d["employees"].append(dict(firstName = "Albert", lastName = "Bert"))  appends a new item to the list.
+                             This item happens to be a new dictionary.        
 
-                          </textarea>
-                     </div>
-                 </form>
-              
-        
-               <div class="accordion" id="accordionExample" style="margin-top: -16px;">
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 41.
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                           
-                              import string
-
-                              with open("letters.txt", "w") as file:
-                                  for letter in string.ascii_lowercase:
-                                      file.write(letter + "\n")
-
-
-                                      Explanation:
-                                      The ascii_lowercase   property of the string  module is quite helpful here to generate a string of all letters.
-                                       Then we create a file and while the file is open, we iterate through the string and apply the write method in 
-                                       each iteration to write the letters in the text file. 
-                                       We are also appending \n  to each letter which is a special character that creates break lines. 
-                                       That makes sure to separate the letters in different lines.                              
                           </textarea>
                      </div>
                   </div>
@@ -707,21 +732,28 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 42.  Print out in each line the sum of homologous items of the two sequences. </span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 56.  Store the dictionary in a json file. </span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>                       
-                              a = [1, 2, 3]
-                              b = (4, 5, 6)
-                              
-                              Expected output:                               
-                              5
-                              7
-                              9
+                              d = {"employees":[{"firstName": "John", "lastName": "Doe"},
+                                  {"firstName": "Anna", "lastName": "Smith"},
+                                  {"firstName": "Peter", "lastName": "Jones"}],
+                              "owners":[{"firstName": "Jack", "lastName": "Petter"},
+                                        {"firstName": "Jessy", "lastName": "Petter"}]}
                                                   
                           </textarea>
+
+                          <img src="56question.png" alt="Image">
+
+
+
+
+
+
+
                      </div>
                  </form>
               
@@ -731,7 +763,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 42.
+                        Answer 56.
                       </button>
                     </h2>
                   </div>
@@ -740,11 +772,23 @@
   
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>                       
-                              a = [1,2,3]
-                              b = [4,5,6]
+                              import json
 
-                              for i, j in zip(a,b):
-                                  print(i + j)
+                              d = {"employees":[{"firstName": "John", "lastName": "Doe"},
+                                              {"firstName": "Anna", "lastName": "Smith"},
+                                              {"firstName": "Peter", "lastName": "Jones"}],
+                              "owners":[{"firstName": "Jack", "lastName": "Petter"},
+                                        {"firstName": "Jessy", "lastName": "Petter"}]}
+                              
+                              with open("company1.json", "w") as file:
+                                  json.dump(d, file, indent=4, sort_keys=True)
+                              Explanation:
+                              
+                              As you can see we created the json file using the standard file handling method, but then we used json.
+                              dump  which makes it easy to write the dictionary content to the file. 
+                              
+                              indent=4  will create 4 white spaces to indent the different levels of the dictionary items and sort_keys=True  
+                              tells Python to preserve the order of the dictionary thrown in the file.
                               
                           </textarea>
                      </div>
@@ -765,27 +809,20 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 43. Create a script that generates a file where all letters of English alphabet are listed two in each line.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 57. Please download the file in the attachment and use Python to print out its content.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
 
-                              The inside of the text file would look like:
-                              ab
-                              cd
-                              ef
+                              Expected output: 
 
-                              and so on
-
-
-
-
-
-                              Hint 1: Use the zip  function to iterate through two slices of the letters sequence. 
-                              Hint 2: One slice would be string.ascii_lowercase[0::2]  and the other string.ascii_letters[1::2] 
-
+                              {'employees': [{'firstName': 'John', 'lastName': 'Doe'},
+                                             {'firstName': 'Anna', 'lastName': 'Smith'},
+                                             {'firstName': 'Peter', 'lastName': 'Jones'}],
+                               'owners': [{'firstName': 'Jack', 'lastName': 'Petter'},
+                                          {'firstName': 'Jessy', 'lastName': 'Petter'}]}
 
                           </textarea>
                      </div>
@@ -797,105 +834,28 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 43.
+                        Answer 57.
                       </button>
                     </h2>
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-
-                              import string
-
-                              with open("letters.txt", "w") as file:
-                                  for letter1, letter2 in zip(string.ascii_lowercase[0::2], string.ascii_letters[1::2]):
-                                      file.write(letter1 + letter2 + "\n")
+                              import json
+                              from pprint import pprint
                               
-
-
-                          </textarea>
-                     </div>
-                  </div>
-                </div>
-              </div>
-              
-               <hr>
-        
-               <!-- New Section -->
-  
-  
-  
-  
-  
-  
-  
-               
-                  <!-- New Section -->
-  
-                  <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 44. Create a script that generates a file where all letters of English alphabet are listed three in each line.</span>
-                </div>
-        
-                <form style="margin-top: -15px;">
-                     <div class="form-group">
-  
-                        The inside of the text file would look like:
-
-                        abc
-                        def
-                        ghi
-                        
-                        and so on.
-                        
-  
-                     </div>
-                 </form>
-              
-        
-               <div class="accordion" id="accordionExample" style="margin-top: -16px;">
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 44.
-                      </button>
-                    </h2>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                      <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
-                           
-                              import string
-
-                              letters = string.ascii_lowercase + " "
+                              with open("company1.json","r") as file:
+                                  d = json.loads(file.read())
                               
-                              slice1 = letters[0::3]
-                              slice2 = letters[1::3]
-                              slice3 = letters[2::3]
-                              
-                              with open("letters.txt", "w") as file:
-                                  for s1, s2, s3 in zip(slice1, slice2, slice3):
-                                      file.write(s1 + s2 + s3 + "\n")
-
-
-
-
+                              print(d)
 
 
                               Explanation:
                               
-                              This is like the previous exercise with the difference that we're using a different slicing step of 3 here. 
-                              Another difference is that we are adding one white spaces to ascii_lowercase  
-                              so that we get a string of 27 items as opposed to 26 that ascii_lowercase  provides.
-                               By slicingascii_lowercase we would get two slices with a length of 9 and one slice with a length of 8. 
-                              
-                              That means the iteration would stop at the shortest slice so letters y and z wouldn't be written in the file.
-                               That's why we add a white space so we get three slices each with a length of 9. 
-                               That means we get 9 iterations and not 8 as we would get with the original ascii_lowercase  string. 
-                               The 9th iteration would write letters y and z in the file.
-                              
-                              Note that this solution might not be the best and there are surely improvements to be made so the script works with any number of letters.
-                              
+                              We're opening the file in read mode and then using json.
+                              loads  which gets a string as output and creates a dictionary object out of that.
+
+
                           </textarea>
                      </div>
                   </div>
@@ -916,19 +876,75 @@
                   <!-- New Section -->
   
                   <div class="alert alert-info" role="alert">
-                    <span style="font-size: 18px;font-weight: 40px;"> Question 45. Please create a script that generates 26 text files named a.txt, b.txt, and so on up to z.txt.</span>
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 58. Please download the json file in the attachment and use Python to add a new employee to the content of the file so that the file looks like in the expected output below.</span>
+                </div>
+        
+
+                <p>Expected output: </p>
+
+                <img src="58question.png" alt="Image">
+
+        
+               <div class="accordion" id="accordionExample" style="margin-top: -16px;">
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                        Answer 58.
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
+                           
+                              import string
+
+                              with open("comany1.json", "r+") as file:
+                                  d = json.load(file.read())
+                                  d["employee"].append(dict(firstName = "Albert", lastName = "Bert"))
+                                  lastName = "Bert"))
+                                  file.seek(0)
+                                  json.dump(d, file, indent=4, sort_keys=True)
+                                  file.truncate()
+
+                                                            
+                          </textarea>
+                     </div>
+                  </div>
+                </div>
+              </div>
+              
+               <hr>
+        
+               <!-- New Section -->
+  
+  
+  
+  
+  
+  
+  
+               
+                  <!-- New Section -->
+  
+                  <div class="alert alert-info" role="alert">
+                    <span style="font-size: 18px;font-weight: 40px;"> Question 59. Please complete the code so that it prints out the expected output.</span>
                 </div>
         
                 <form style="margin-top: -15px;">
                      <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              Each file should contain a letter reflecting its filename.
-                               So, 
-                                    a.txt will contain letter a, b.txt will contain letter b and so on.
+                              a = [1, 2, 3] 
 
-                            
-                              Hint: Start iterating with a for loop and create a file in each iteration.
+                              Expected output: 
+                                  Item 1 has index 0
+                                  Item 2 has index 1
+                                  Item 3 has index 2
+
+                                  Hint 1: Use a for  loop.
+                                  Hint 2: Iterate through enumerate(a)  .
 
                           </textarea>
                      </div>
@@ -940,7 +956,7 @@
                   <div class="card-header" id="headingThree">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                        Answer 45.
+                        Answer 59.
                       </button>
                     </h2>
                   </div>
@@ -948,19 +964,14 @@
                       <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
                            
-                              import string, os
+                              a = [1, 2, 3]
+                              for index, item in enumerate(a):
+                                  print("Item %s has index %s" % (item, index))
 
-                              if not os.path.exists("letters"):
-                                  os.makedirs("letters")
-                              
-                              for letter in string.ascii_lowercase:
-                                  with open("letters/" + letter + ".txt", "w") as file:
-                                      file.write(letter + "\n")
-                              
-                              with open("letters.txt", "w") as file:
-                                  for letter1, letter2 in zip(string.ascii_lowercase[0::2], string.ascii_letters[1::2]):
-                                      file.write(letter1 + letter2 + "\n")
-                              
+
+                              Explanation:
+                              enumerate(a)  creates an enumerate object which yields pairs of indexes and items. 
+                              Then we iterate through that object print out the item-index pairs in each iteration together with some other strings.
                               
                           </textarea>
                      </div>
@@ -979,10 +990,41 @@
 
 
 
+<!-- New Section -->
+  
+<div class="alert alert-info" role="alert">
+    <span style="font-size: 18px;font-weight: 40px;"> Question 60. Create a program that prints Hello repeatedly. </span>
+</div>
 
 
 
+<div class="accordion" id="accordionExample" style="margin-top: -16px;">
+<div class="card">
+  <div class="card-header" id="headingThree">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+        Answer 60.
+      </button>
+    </h2>
+  </div>
+  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="form-group">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" disabled>
+           
 
+            while 1 < 2 :
+                print("Hello")
+
+
+          </textarea>
+     </div>
+  </div>
+</div>
+</div>
+
+<hr>
+
+<!-- New Section -->
 
 
 
